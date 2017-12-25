@@ -10,7 +10,6 @@ import {Content} from 'native-base';
 
 export default class Sidebar extends Component {
     render() {
-        debugger;
         return (
             <Content style={{backgroundColor:'#f1eaff'}}>
     <Text>Drawer</Text>

@@ -8,6 +8,10 @@ import React, { Component } from 'react';
 import { Drawer } from 'native-base';
 import Sidebar from './src/navigation/sidebar';
 import AppHeader from './src/core/appHeader';
+import { Container, Header, Content } from 'native-base';
+import Layout from './src/core/layout';
+import { Provider } from 'react-redux';
+import store from './src/utils/store'
 import {
   Platform,
   StyleSheet,
@@ -34,15 +38,22 @@ export default class App extends Component {
     };
 
   render() {
+/*return(
+      <Drawer
+          ref={(ref) => { this.drawer = ref; }}
+          content={<Sidebar/>}
+          onClose={() => this.closeDrawer()} >
+          <AppHeader
+              openDrawer={this.openDrawer.bind(this)}
+          />
+      </Drawer>
+);*/
+
+
       return (
-          <Drawer
-      ref={(ref) => { this.drawer = ref; }}
-      content={<Sidebar/>}
-      onClose={() => this.closeDrawer()} >
-              <AppHeader
-                  openDrawer={this.openDrawer.bind(this)}
-              />
-  </Drawer>
+          <Provider store={store}>
+              <Layout/>
+          </Provider>
   );
   }
 }
