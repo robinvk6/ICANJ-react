@@ -44,12 +44,12 @@ export default {
   checkboxTickColor: "#fff",
 
   // Segment
-  segmentBackgroundColor: "#3F51B5",
+  segmentBackgroundColor: "#1A1F2B",
   segmentActiveBackgroundColor: "#fff",
   segmentTextColor: "#fff",
-  segmentActiveTextColor: "#3F51B5",
+  segmentActiveTextColor: "#1A1F2B",
   segmentBorderColor: "#fff",
-  segmentBorderColorMain: "#3F51B5",
+  segmentBorderColorMain: "#1A1F2B",
 
   // New Variable
   get defaultTextColor() {
@@ -112,8 +112,8 @@ export default {
   cardDefaultBg: "#fff",
 
   // Color
-  brandPrimary: "#3F51B5",
-  brandInfo: "#3F57D3",
+  brandPrimary: "#1A1F2B",
+  brandInfo: "#30395C",
   brandSuccess: "#5cb85c",
   brandDanger: "#d9534f",
   brandWarning: "#f0ad4e",
@@ -137,7 +137,7 @@ export default {
 
   // Footer
   footerHeight: isIphoneX ? 89 : 55,
-  footerDefaultBg: "#3F51B5",
+  footerDefaultBg: "#1A1F2B",
   footerPaddingBottom: isIphoneX ? 34 : 0,
 
   // FooterTab
@@ -149,7 +149,7 @@ export default {
   tabActiveBgColor: undefined,
 
   // Tab
-  tabDefaultBg: "#3F51B5",
+  tabDefaultBg: "#1A1F2B",
   topTabBarTextColor: "#b3c7f9",
   topTabBarActiveTextColor: "#fff",
   topTabActiveBgColor: undefined,
@@ -158,7 +158,7 @@ export default {
 
   // Header
   toolbarBtnColor: "#fff",
-  toolbarDefaultBg: "#3F51B5",
+  toolbarDefaultBg: "#1A1F2B",
   toolbarHeight: platform === "ios" ? (isIphoneX ? 88 : 64) : 56,
   toolbarIconSize: platform === "ios" ? 20 : 22,
   toolbarSearchIconSize: platform === "ios" ? 20 : 23,
@@ -167,7 +167,7 @@ export default {
   searchBarInputHeight: platform === "ios" ? 30 : 50,
   toolbarInverseBg: "#222",
   toolbarTextColor: "#fff",
-  toolbarDefaultBorder: "#3F51B5",
+  toolbarDefaultBorder: "#1A1F2B",
   iosStatusbar: "light-content",
   get statusBarColor() {
     return color(this.toolbarDefaultBg)
@@ -271,6 +271,7 @@ export default {
   borderRadiusBase: 2,
   borderWidth: 1 / PixelRatio.getPixelSizeForLayoutSize(1),
   contentPadding: 10,
+    contentBackgroundColor: '#F3EDE7',
 
   get darkenHeader() {
     return color(this.tabBgColor)

@@ -1,21 +1,93 @@
-/**
- * Created by robinvarghese on 12/17/17.
- */
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { Image } from "react-native";
+import { Actions } from 'react-native-router-flux';
 import {
+    Content,
     Text,
-} from 'react-native';
+    List,
+    ListItem,
+    Icon,
+    Container,
+    Left,
+    Right,
+    Badge
+} from "native-base";
+import styles from "./../styles/style";
 
-import {Content} from 'native-base';
 
-export default class Sidebar extends Component {
+const datas = [
+    {
+        name: "Anatomy",
+        route: "Anatomy",
+        icon: "phone-portrait",
+        bg: "#C5F442"
+    },
+    {
+        name: "Actionsheet",
+        route: "Actionsheet",
+        icon: "easel",
+        bg: "#C5F442"
+    }
+];
+
+class SideBar extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            shadowOffsetWidth: 1,
+            shadowRadius: 4
+        };
+    }
+
     render() {
         return (
-            <Content style={{backgroundColor:'#f1eaff'}}>
-    <Text>Drawer</Text>
-        </Content>
-    );
+            <Container>
+                <Content
+                    bounces={false}
+                    style={{ flex: 1, backgroundColor: "#fff", top: -1 }}
+                >
+                    {/*<Image source={drawerCover} style={styles.drawerCover} />
+                    <Image square style={styles.drawerImage} source={drawerImage} />*/}
+
+                    <List
+                        dataArray={datas}
+                        renderRow={data =>
+                            <ListItem
+                                button
+                                noBorder
+                                onPress={() => Actions.header()}
+                            >
+                                <Left>
+                                    <Icon
+                                        active
+                                        name={data.icon}
+                                        style={{ color: "#777", fontSize: 26, width: 30 }}
+                                    />
+                                    <Text style={styles.text}>
+                                        {data.name}
+                                    </Text>
+                                </Left>
+                                {data.types &&
+                                <Right style={{ flex: 1 }}>
+                                    <Badge
+                                        style={{
+                                            borderRadius: 3,
+                                            height: 25,
+                                            width: 72,
+                                            backgroundColor: data.bg
+                                        }}
+                                    >
+                                        <Text
+                                            style={styles.badgeText}
+                                        >{`${data.types} Types`}</Text>
+                                    </Badge>
+                                </Right>}
+                            </ListItem>}
+                    />
+                </Content>
+            </Container>
+        );
     }
 }
 
-module.exports = Sidebar;
+export default SideBar;

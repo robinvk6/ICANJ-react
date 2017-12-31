@@ -6,9 +6,11 @@
 
 import React, { Component } from 'react';
 import { Drawer } from 'native-base';
+import getTheme from './native-base-theme/components';
+import material from './native-base-theme/variables/material';
 import Sidebar from './src/navigation/sidebar';
 import AppHeader from './src/core/appHeader';
-import { Container, Header, Content } from 'native-base';
+import { Container, Header, Content, StyleProvider } from 'native-base';
 import Layout from './src/core/layout';
 import { Provider } from 'react-redux';
 import store from './src/utils/store'
@@ -28,32 +30,21 @@ const instructions = Platform.select({
 //https://github.com/learncodeacademy/react-js-tutorials/blob/master/5-redux-react/src/js/actions/tweetsActions.js
 // https://www.youtube.com/watch?v=DJ8fR0mZM44
 export default class App extends Component {
-    closeDrawer = () => {
-        this.drawer._root.close()
-    };
-
-    openDrawer = () => {
-
-        this.drawer._root.open()
-    };
+    async componentWillMount() {
+        await Expo.Font.loadAsync({
+            'Roboto': require('native-base/Fonts/Roboto.ttf'),
+            'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+        });
+    }
 
   render() {
-/*return(
-      <Drawer
-          ref={(ref) => { this.drawer = ref; }}
-          content={<Sidebar/>}
-          onClose={() => this.closeDrawer()} >
-          <AppHeader
-              openDrawer={this.openDrawer.bind(this)}
-          />
-      </Drawer>
-);*/
-
 
       return (
+          <StyleProvider style={getTheme(material)}>
           <Provider store={store}>
               <Layout/>
           </Provider>
+          </StyleProvider>
   );
   }
 }
