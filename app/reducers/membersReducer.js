@@ -10,7 +10,12 @@ const initialState = {
 export default function reducer (state=initialState, action){
     switch(action.type){
         case "FETCH_DIRECTORY_FULFILLED": {
-            return {...state,members:action.payload.members,families:action.payload.families,error:null}
+            let families = [];
+            for (let index in action.payload.families){
+                let family  = action.payload.families[index];
+                families[family.familyId] = family;
+            }
+            return {...state,members:action.payload.members,families:families,error:null}
         }
         case "FETCH_MEMBERS_REJECTED": {
             return {...state,members:[],error:action.payload}

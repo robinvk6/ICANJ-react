@@ -9,9 +9,6 @@ import {connect} from 'react-redux'
 
 import styles from './../styles/styles'
 
-const deviceHeight = Dimensions.get('window').height;
-const deviceWidth = Dimensions.get('window').width;
-
 const drawerCover = require('./../../assets/cover.jpg');
 const drawerImage = require('./../../assets/ICANJ_logo.png');
 

@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { Router, Scene } from 'react-native-router-flux';
 
 import Home from './containers/Home';
-import Second from './containers/Second';
 import Third from './containers/Third';
 import Login from './containers/auth/login'
 import Directory from './containers/directory/Directory'
+import MemberView from './containers/directory/MemberView'
 
 const RouterWithRedux = connect()(Router);
 
@@ -22,6 +22,10 @@ const AppNavigator = () => (
         key="directory"
         component={Directory}
       />
+        <Scene
+            key="memberView"
+            component={MemberView}
+        />
       <Scene
         key="third"
         component={Third}

@@ -46,7 +46,7 @@ export function getMembers(){
         })
 
         axios.all([members,families]).then(axios.spread(function (res1, res2) {
-            dispatch({type:"FETCH_DIRECTORY_FULFILLED", payload: {members:res1.data,families:res2.data}})
+            dispatch({type:"FETCH_DIRECTORY_FULFILLED", payload: {members:res1.data.data,families:res2.data.data}})
         }));
     }
 }

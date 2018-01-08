@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import Layout from './../Layout'
 import * as MemberActions from './../../actions/memberActions'
-import {Container, Content, List, ListItem, Text, Button, Title, CardItem, Body, Thumbnail, Left,Right} from 'native-base';
-
+import {Container, Content, List, ListItem, Text, Button, Title, CardItem, Body,Icon, Thumbnail, Left,Right} from 'native-base';
+import IconContainer from './../common/IconContainer'
+import {Actions} from 'react-native-router-flux';
 
 class Directory extends Component {
 
@@ -11,23 +12,28 @@ class Directory extends Component {
         this.props.dispatch(MemberActions.getMembers())
     }
 
+    rowPressed = (member, family) => {
+    Actions.memberView({member,family})
+    }
+
     render() {
 
         return (
             <Layout title="ICANJ Directory">
-                <Content padder>
-                    <List dataArray={this.props.members.members}
+                <Content>
+                    <List dataArray={this.props.directory.members}
                     renderRow={(member) =>
-                         <ListItem avatar>
-                        <Left>
 
+                         <ListItem avatar last onPress={() => this.rowPressed(member,this.props.directory.families[member.familyId])}>
+                        <Left>
+                        <IconContainer text={member.firstName.substr(0,1).toUpperCase()+member.lastName.substr(0,1).toUpperCase()} />
                         </Left>
                         <Body>
                         <Text>{member.firstName} {member.lastName}</Text>
-                        <Text note>Doing what you like will always keep you happy . .</Text>
+                        <Text note>{this.props.directory.families[member.familyId].address.city},{this.props.directory.families[member.familyId].address.state}</Text>
                         </Body>
                         <Right>
-                        <Text note>3:43 pm</Text>
+                            <Icon name="more" />
                         </Right>
                         </ListItem>
                     }>
@@ -43,7 +49,7 @@ class Directory extends Component {
 
 function mapStateToProps(state) {
     return {
-        members: state.members
+        directory: state.directory
     };
 }
 

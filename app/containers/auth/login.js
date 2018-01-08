@@ -18,12 +18,11 @@ class Login extends React.Component {
             email: "",
             password: ""
         }
+        this.props.dispatch(authenticateUser('robinvk6@gmail.com', 'Testuser1'));
     }
 
     login = () => {
-        //this.props.dispatch(authenticateUser(this.state.email,this.state.password));
-        this.props.dispatch(authenticateUser('robinvk6@gmail.com', 'Testuser1'));
-
+        this.props.dispatch(authenticateUser(this.state.email,this.state.password));
     };
 
     goToSignup = () => {

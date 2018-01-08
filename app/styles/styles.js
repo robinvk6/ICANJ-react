@@ -22,6 +22,14 @@ var styles = StyleSheet.create({
         margin :30,
 
     },
+    iconContainer: {
+        alignItems: 'center',
+        borderRadius: 25,
+        borderWidth: 1,
+        justifyContent: 'center',
+        height: 50,
+        width: 50,
+    },
     overlay: {
         opacity: 0.8,
         alignSelf: 'flex-end',
