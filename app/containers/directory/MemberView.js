@@ -7,8 +7,6 @@ class MemberView extends Component{
 
     constructor(props){
         super(props)
-        console.log("Member View ")
-
     }
 
     render(){

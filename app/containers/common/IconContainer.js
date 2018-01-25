@@ -30,11 +30,22 @@ const iconColors = {
 class IconContainer extends Component{
 
     render() {
-        const colorIndex = Math.floor(Math.random() * 6) + 1
+        const colorIndex = this.props.colorIndex ? this.props.colorIndex : Math.floor(Math.random() * 10) + 1;
+
+
+
+        //Set Custom Height & Width
+        let overrideiconContainer = {...iconContainer,
+            height: this.props.iconSize ? this.props.iconSize : iconContainer.height,
+            width: this.props.iconSize ? this.props.iconSize : iconContainer.width,
+            borderRadius: this.props.iconSize ? this.props.iconSize/2 : iconContainer.borderRadius,
+        }
+
+
         return (
 
             <View style={{
-                ...iconContainer,
+                ...overrideiconContainer,
                 backgroundColor: iconColors[colorIndex],
                 borderColor: iconColors[colorIndex]
             }}>

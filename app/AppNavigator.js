@@ -7,6 +7,8 @@ import Third from './containers/Third';
 import Login from './containers/auth/login'
 import Directory from './containers/directory/Directory'
 import MemberView from './containers/directory/MemberView'
+import Tithing from './containers/tithing/Tithing'
+import TithingDetails from './containers/tithing/TitheDetails'
 
 const RouterWithRedux = connect()(Router);
 
@@ -25,6 +27,14 @@ const AppNavigator = () => (
         <Scene
             key="memberView"
             component={MemberView}
+        />
+        <Scene
+            key="tithing"
+            component={Tithing}
+        />
+        <Scene
+            key="tithingView"
+            component={TithingDetails}
         />
       <Scene
         key="third"

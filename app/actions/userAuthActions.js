@@ -31,7 +31,6 @@ export function fetchJWTtoken () {
 export function authenticateUser(username,password) {
     var currentTime = new Date()
     return function(dispatch) {
-        dispatch({type: "AUTHENTICATING_USER"})
         axios({
             method: 'post',
             url: GLOBALS.SERVICES.AUTH,

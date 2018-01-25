@@ -6,6 +6,7 @@
 var BASE_URL = "https://my.icanj.org/api/";
 
 var GLOBAL = {
+    YEAR_DROPDOWN : ["2018","2017","2016","2015","2014"],
     SERVICES : {
         AUTH : BASE_URL+ 'auth',
         AUTH_REFRESH : BASE_URL+ 'auth/refresh',

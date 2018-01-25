@@ -62,6 +62,9 @@ class Sidebar extends Component {
                         <ListItem last onPress={() => this.navigate(Actions.directory)}>
                             <Text>Directory</Text>
                         </ListItem>
+                        <ListItem last onPress={() => this.navigate(Actions.tithing)}>
+                            <Text>My Tithe</Text>
+                        </ListItem>
 
                         {loginItem}
                     </List>
