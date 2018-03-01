@@ -44,12 +44,12 @@ export default {
   checkboxTickColor: "#fff",
 
   // Segment
-  segmentBackgroundColor: "#1A1F2B",
+  segmentBackgroundColor: "#2C2440",
   segmentActiveBackgroundColor: "#fff",
   segmentTextColor: "#fff",
-  segmentActiveTextColor: "#1A1F2B",
+  segmentActiveTextColor: "#2C2440",
   segmentBorderColor: "#fff",
-  segmentBorderColorMain: "#1A1F2B",
+  segmentBorderColorMain: "#2C2440",
 
   // New Variable
   get defaultTextColor() {
@@ -112,8 +112,8 @@ export default {
   cardDefaultBg: "#fff",
 
   // Color
-  brandPrimary: "#1A1F2B",
-  brandInfo: "#30395C",
+  brandPrimary: "#2C2440",
+  brandInfo: "#725DA6",
   brandSuccess: "#5cb85c",
   brandDanger: "#d9534f",
   brandWarning: "#f0ad4e",
@@ -123,21 +123,21 @@ export default {
 
   // Font
   fontFamily: "Roboto",
-  fontSizeBase: 15,
+  fontSizeBase: 14,
 
   get fontSizeH1() {
-    return this.fontSizeBase * 1.8;
+    return 18;
   },
   get fontSizeH2() {
-    return this.fontSizeBase * 1.6;
+    return 16;
   },
   get fontSizeH3() {
-    return this.fontSizeBase * 1.4;
+    return 14;
   },
 
   // Footer
   footerHeight: isIphoneX ? 89 : 55,
-  footerDefaultBg: "#1A1F2B",
+  footerDefaultBg: "#2C2440",
   footerPaddingBottom: isIphoneX ? 34 : 0,
 
   // FooterTab
@@ -149,7 +149,7 @@ export default {
   tabActiveBgColor: undefined,
 
   // Tab
-  tabDefaultBg: "#1A1F2B",
+  tabDefaultBg: "#2C2440",
   topTabBarTextColor: "#b3c7f9",
   topTabBarActiveTextColor: "#fff",
   topTabActiveBgColor: undefined,
@@ -158,7 +158,7 @@ export default {
 
   // Header
   toolbarBtnColor: "#fff",
-  toolbarDefaultBg: "#1A1F2B",
+  toolbarDefaultBg: "#2C2440",
   toolbarHeight: platform === "ios" ? (isIphoneX ? 88 : 64) : 56,
   toolbarIconSize: platform === "ios" ? 20 : 22,
   toolbarSearchIconSize: platform === "ios" ? 20 : 23,
@@ -167,7 +167,7 @@ export default {
   searchBarInputHeight: platform === "ios" ? 30 : 50,
   toolbarInverseBg: "#222",
   toolbarTextColor: "#fff",
-  toolbarDefaultBorder: "#1A1F2B",
+  toolbarDefaultBorder: "#2C2440",
   iosStatusbar: "light-content",
   get statusBarColor() {
     return color(this.toolbarDefaultBg)
@@ -182,7 +182,7 @@ export default {
   iconHeaderSize: platform === "ios" ? 29 : 24,
 
   // InputGroup
-  inputFontSize: 17,
+  inputFontSize: 14,
   inputBorderColor: "#D9D5DC",
   inputSuccessBorderColor: "#2b8339",
   inputErrorBorderColor: "#ed2f2f",
@@ -222,8 +222,8 @@ export default {
   // Changed Variable
   listItemPadding: platform === "ios" ? 10 : 12,
 
-  listNoteColor: "#808080",
-  listNoteSize: 13,
+  listNoteColor: this.brandSidebar,
+  listNoteSize: 14,
 
   // Progress Bar
   defaultProgressColor: "#E4202D",
@@ -254,13 +254,13 @@ export default {
   tabTextColor: "#222222",
 
   // Text
-  textColor: "#000",
+  textColor: this.brandPrimary,
   inverseTextColor: "#fff",
   noteFontSize: 14,
 
   // Title
   titleFontfamily: platform === "ios" ? "Roboto" : "Roboto_medium",
-  titleFontSize: 19,
+  titleFontSize: 18,
   subTitleFontSize: 14,
   subtitleColor: "#FFF",
 
@@ -270,7 +270,7 @@ export default {
   // Other
   borderRadiusBase: 2,
   borderWidth: 1 / PixelRatio.getPixelSizeForLayoutSize(1),
-  contentPadding: 10,
+  contentPadding: 5,
     contentBackgroundColor: '#F3EDE7',
 
   get darkenHeader() {

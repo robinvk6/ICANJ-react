@@ -9,6 +9,9 @@ import Directory from './containers/directory/Directory'
 import MemberView from './containers/directory/MemberView'
 import Tithing from './containers/tithing/Tithing'
 import TithingDetails from './containers/tithing/TitheDetails'
+import YoutubeVideos from './containers/videocasts/YoutubeVideos'
+import VideoRenderer from './containers/videocasts/VideoRenderer'
+import OnlinePay from './containers/onlinePay/OnlinePay'
 
 const RouterWithRedux = connect()(Router);
 
@@ -40,6 +43,18 @@ const AppNavigator = () => (
         key="third"
         component={Third}
       />
+        <Scene
+            key="youtube"
+            component={YoutubeVideos}
+        />
+        <Scene
+            key="youtubeRenderer"
+            component={VideoRenderer}
+        />
+        <Scene
+            key="onlinePay"
+            component={OnlinePay}
+        />
         <Scene
             key="login"
             component={Login}

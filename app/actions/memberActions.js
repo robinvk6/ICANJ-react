@@ -8,7 +8,7 @@ export function getMembers(){
             method: 'get',
             url: GLOBALS.SERVICES.MEMBERS,
             headers: {
-                'X-Auth-Token': state().jwtauth.auth.token,
+                'X-Auth-Token': state().jwtauth.token,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
@@ -18,14 +18,14 @@ export function getMembers(){
             method: 'get',
             url: GLOBALS.SERVICES.ALL_FAMILIES,
             headers: {
-                'X-Auth-Token': state().jwtauth.auth.token,
+                'X-Auth-Token': state().jwtauth.token,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
         })
 
         axios.all([members,families]).then(axios.spread(function (res1, res2) {
-            dispatch({type:"FETCH_DIRECTORY_FULFILLED", payload: {members:res1.data.data,families:res2.data.data}})
+            dispatch({type:"FETCH_DIRECTORY_FULFILLED", payload: {members:res1.data.data.slice(1,10),families:res2.data.data}})
         }));
     }
 }

@@ -1,9 +1,9 @@
 'use strict';
 
 //var  BASE_URL = 'http://172.20.10.3:8080/api/';
-//var  BASE_URL = 'http://192.168.1.151:8080/api/';
+var  BASE_URL = 'http://192.168.1.151:8080/api/';
 //var  BASE_URL = 'http://127.0.0.1:8080/api/';
-var BASE_URL = "https://my.icanj.org/api/";
+//var BASE_URL = "https://my.icanj.org/api/";
 
 var GLOBAL = {
     YEAR_DROPDOWN : ["2018","2017","2016","2015","2014"],

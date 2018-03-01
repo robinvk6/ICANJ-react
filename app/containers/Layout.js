@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleProvider, Drawer, Container, Content, Text, Card, Body, Button, Title, CardItem, Header, Left, Right,  Icon } from 'native-base';
-import { Actions } from 'react-native-router-flux';
+import { View } from 'react-native';
 import getTheme from './../../native-base-theme/components';
 import material from './../../native-base-theme/variables/material';
 import Sidebar from './Sidebar';
@@ -30,9 +30,16 @@ export default class Layout extends Component {
         <Container>
           <Header hasTabs={!!this.props.hasTabs}>
             <Left>
+                <View style={{flex: 1, flexDirection: 'row'}}>
               <Button transparent onPress={() => this.openDrawer()}>
                 <Icon name='menu' />
               </Button>
+                {
+                    this.props.backEnabled ? <Button transparent onPress={() => this.props.backEnabled.goBack()}>
+                        <Icon name='arrow-back' />
+                    </Button> : null
+                }
+                </View>
             </Left>
             <Body>
               <Title>{ this.props.title }</Title>

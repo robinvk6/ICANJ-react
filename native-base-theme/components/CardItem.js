@@ -1,4 +1,4 @@
-import variable from './../variables/platform';
+import variable from './../variables/material';
 
 export default (variables = variable) => {
 	const platform = variables.platform;
@@ -14,7 +14,7 @@ export default (variables = variable) => {
 					},
 				},
 				flex: 1,
-				marginLeft: 10,
+				marginLeft: 5,
 				alignItems: null,
 			},
 			'NativeBase.Icon': {
@@ -155,6 +155,7 @@ export default (variables = variable) => {
 		'.header': {
 			'NativeBase.Text': {
 				fontSize: 16,
+                color: variables.brandPrimary,
 				fontWeight: platform === 'ios' ? '500' : undefined,
 			},
 			'.bordered': {
@@ -204,7 +205,7 @@ export default (variables = variable) => {
 		flexDirection: 'row',
 		alignItems: 'center',
 		borderRadius: 2,
-		padding: variables.listItemPadding + 5,
+		padding: variables.listItemPadding ,
 		paddingVertical: variables.listItemPadding,
 		backgroundColor: variables.cardDefaultBg,
 	};

@@ -6,6 +6,7 @@ var {
 } = ReactNative;
 import GLOBALS from './../config/constants'
 var jwtDecode = require('jwt-decode');
+import {getOnlinePayEligibility} from '../actions/financeActions'
 
 
 function _onValueChange(item, selectedValue) {
@@ -29,7 +30,6 @@ export function fetchJWTtoken () {
 }
 
 export function authenticateUser(username,password) {
-    var currentTime = new Date()
     return function(dispatch) {
         axios({
             method: 'post',
@@ -47,7 +47,12 @@ export function authenticateUser(username,password) {
                 var decoded = jwtDecode(response.data.token);
                 _onValueChange(GLOBALS.CONSTANTS.STORAGE_KEY, response.data.token);
                 _onValueChange(GLOBALS.CONSTANTS.ICANJ_USERNAME, username);
-                dispatch({type: "AUTHENTICATE_USER_FULFILLED", payload: {username,token:response.data.token,last_logged_in:currentTime,jwtToken:decoded}})
+                dispatch({type: "AUTHENTICATE_USER_FULFILLED", payload: {token:response.data,jwtToken:decoded}})
+
+
+                //POST AUTH Calls - Dispatch all actions that you want post Auth here.
+                dispatch(getOnlinePayEligibility())
+
                 Actions.home()
             })
             .catch((err) => {

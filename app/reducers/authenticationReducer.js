@@ -3,13 +3,9 @@
  */
 
 const initialState = {
-    auth: {
-        username: null,
-        token: null,
-    },
-    fetching: false,
-    fetched: false,
-    error: null,
+    token : null,
+    jwtTokenDecoded : null,
+    currentUser: null
 }
 
 
@@ -28,7 +24,11 @@ const reducer = (state=initialState, action) => {
             return {...state}
         }
         case "AUTHENTICATE_USER_FULFILLED": {
-            return {...state, fetching: false, fetched: true, headerTitle:'Hi User', auth:action.payload}
+            return {...state,
+                token:action.payload.token.token,
+                jwtTokenDecoded:action.payload.jwtToken,
+                currentUser:action.payload.token.member
+            }
         }
         case "FETCH_MEMBERS_REJECTED": {
             return {...state, fetching: false, error: action.payload}

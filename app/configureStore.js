@@ -8,6 +8,5 @@ import {fetchJWTtoken} from './actions/userAuthActions'
 const middleware = applyMiddleware(promise(), thunk, logger)
 const store = createStore(rootReducer, compose(middleware))
 
-
 store.dispatch(fetchJWTtoken())
 export default store;

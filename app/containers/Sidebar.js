@@ -3,7 +3,7 @@ import {
     Text, Dimensions, Image, View
 } from 'react-native';
 import material from './../../native-base-theme/variables/material';
-import {Container, Content, Button, List, ListItem, H1, H3} from 'native-base';
+import {Container, Content, Button, List, ListItem, H1, H3,Separator, Body} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import {connect} from 'react-redux'
 
@@ -24,17 +24,77 @@ class Sidebar extends Component {
         scene();
     }
 
-    render() {
-        const welcomeUser = 'Hello ' + this.props.auth.token ? this.props.auth.username : '';
+    getGuestMenu() {
+        return (<List>
+            <ListItem last onPress={() => this.navigate(Actions.home)}>
+                <Text>Home</Text>
+            </ListItem>
 
-        const loginItem = !this.props.auth.token ?
+
+            <Separator bordered>
+                <Text>RESOURCES</Text>
+            </Separator>
+            <ListItem last onPress={() => this.navigate(Actions.youtube)}>
+                <Text>Videos</Text>
+            </ListItem>
+
             <ListItem last onPress={() => this.navigate(Actions.login)}>
                 <Text>Login</Text>
-            </ListItem> :
-            <ListItem last onPress={() => this.navigate(Actions.logout)}>
+            </ListItem>
+
+        </List>)
+    }
+
+    getLoggedInMenu() {
+        return (<List>
+            <ListItem last onPress={() => this.navigate(Actions.home)}>
+                <Text>Home</Text>
+            </ListItem>
+
+            <Separator bordered>
+                <Text>DIRECTORY</Text>
+            </Separator>
+            <ListItem last onPress={() => this.navigate(Actions.directory)}>
+                <Text>Directory</Text>
+            </ListItem>
+
+            <Separator bordered>
+                <Text>FINANCE</Text>
+            </Separator>
+            <ListItem last onPress={() => this.navigate(Actions.tithing)}>
+                <Text>My Tithe</Text>
+            </ListItem>
+            <ListItem last onPress={() => this.navigate(Actions.onlinePay)}>
+                <Text>Online Pay</Text>
+            </ListItem>
+
+            <Separator bordered>
+                <Text>RESOURCES</Text>
+            </Separator>
+            <ListItem last onPress={() => this.navigate(Actions.youtube)}>
+                <Text>Videos</Text>
+            </ListItem>
+
+            <Separator bordered>
+                <Text>PROFILE</Text>
+            </Separator>
+            <ListItem last onPress={() => this.navigate(Actions.youtube)}>
+                <Text>Update Profile</Text>
+            </ListItem>
+            <ListItem last onPress={() => this.navigate(Actions.youtube)}>
+                <Text>Update Address</Text>
+            </ListItem>
+            <ListItem last onPress={() => this.navigate(Actions.login)}>
                 <Text>Logout</Text>
             </ListItem>
 
+        </List>)
+    }
+
+    render() {
+        const welcomeUser = this.props.auth.token ? this.props.auth.currentUser.firstName +" "+ this.props.auth.currentUser.lastName : '';
+
+        var content = this.props.auth.token ? this.getLoggedInMenu() : this.getGuestMenu();
 
         return (
             <Container>
@@ -54,20 +114,7 @@ class Sidebar extends Component {
                             <Text style={styles.title}>{welcomeUser}</Text>
                         </View>
                     </View>
-
-                    <List>
-                        <ListItem last onPress={() => this.navigate(Actions.home)}>
-                            <Text>Home</Text>
-                        </ListItem>
-                        <ListItem last onPress={() => this.navigate(Actions.directory)}>
-                            <Text>Directory</Text>
-                        </ListItem>
-                        <ListItem last onPress={() => this.navigate(Actions.tithing)}>
-                            <Text>My Tithe</Text>
-                        </ListItem>
-
-                        {loginItem}
-                    </List>
+                    {content}
                 </Content>
             </Container>
         );
@@ -76,7 +123,8 @@ class Sidebar extends Component {
 
 function mapStateToProps(state) {
     return {
-        auth: state.jwtauth.auth
+        auth: state.jwtauth,
+        finance: state.finance
     };
 }
 

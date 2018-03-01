@@ -63,7 +63,6 @@ class TithingSummary extends Component {
     }
 
     render() {
-        debugger;
         let noContent = (
             <Card>
                 <CardItem header>
@@ -98,6 +97,14 @@ class TithingSummary extends Component {
                             <Text note>
                                 Missions $ Charity : ${this.transactionMap['Missions and Charity']}
                             </Text>
+
+                            {
+                                this.transactionMap['Bihar Missions'] ?
+                                <Text note>
+                                Bihar Missions : ${this.transactionMap['Bihar Missions']}
+                                </Text> : <Text note>Bihar Missions : $0</Text>
+
+                            }
 
 
 
